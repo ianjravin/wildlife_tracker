@@ -1,0 +1,26 @@
+<h1> List your Species Here </h1>
+
+<ul>
+  <% @species.each do |specie| %>
+  <li><a href="/species/<%= specie.id %>"><%= specie.species %></a></li>
+  <% end %>
+</ul>
+
+<% if @specie.errors.any? %>
+  <h3>Please fix these errors:</h3>
+  <ul>
+    <% @specie.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<form action = '/species' method = "post">
+  <label for = "species">Species type</label>
+  <input id = "species" name = "species[species]" type = "text">
+  <button>Add Species</button>
+</form>
+
+
+
+
